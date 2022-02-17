@@ -8,7 +8,7 @@
 ![about](pics/about.PNG)
 
 # How to use?
-- Visit [here!](https://kanhatakeyama.github.io/expmanager_document/)
+- Document is [here!](https://kanhatakeyama.github.io/expmanager_document/)
 
 # Related paper
 - https://chemrxiv.org/engage/chemrxiv/article-details/61ee04a671868d22fdbc8856
