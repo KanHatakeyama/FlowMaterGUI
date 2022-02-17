@@ -1,0 +1,21 @@
+python 3.9
+
+conda create -n django python=3.9
+pip3 install django-nested-inline
+pip3 install django-bootstrap5
+pip3 install django-ckeditor
+pip3 install django-import-export
+pip3 install django-cleanup
+
+pip install git+https://github.com/KanHatakeyama/PolyMolParser.git
+
+conda install -c anaconda django -y
+conda install -c conda-forge rdkit -y
+conda install -c anaconda pillow -y
+conda install -c anaconda networkx -y
+conda install dtale -c conda-forge -y
+
+need to modify
+nested_inline\admin.py, line around 285
+old: module_name
+new: model_name
