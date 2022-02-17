@@ -52,6 +52,10 @@
         - Modification is needed to avoid a bug during saving records with "save as" option
         - [Check here](https://github.com/s-block/django-nested-inline/issues/139) to cope with the bug
 
+# Version
+- 2022.2.17 First prototype
+
+
 # Author
 - Kan Hatakeyama-Sato
 - Waseda University
