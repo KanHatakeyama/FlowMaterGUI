@@ -15,7 +15,7 @@ NAN_STRING="____n/a___not_available___"
 
 DTALE_SERVER_HOST_IP="192.168.11.1"
 
-# import local settings (secret key, etc)
+# import local settings (ip)
 try:
     from .local_settings import *
 except ImportError:
@@ -24,7 +24,6 @@ except ImportError:
 
 def df_to_dtale(df, pandas_mode=False):
 
-    print(DTALE_SERVER_HOST_IP)
 
     # drop all nan column
     df = df.dropna(how='all', axis=1)
