@@ -12,10 +12,20 @@ from .experiment_processor import experiment_graph_generator
 NAN_STRING="____n/a___not_available___"
 
 # IP of the server. this is needed to use dtale
-DTALE_SERVER_HOST_IP="133.9.195.84"
+
+DTALE_SERVER_HOST_IP="192.168.11.1"
+
+# import local settings (secret key, etc)
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 
 def df_to_dtale(df, pandas_mode=False):
+
+    print(DTALE_SERVER_HOST_IP)
+
     # drop all nan column
     df = df.dropna(how='all', axis=1)
 
