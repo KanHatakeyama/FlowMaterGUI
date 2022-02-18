@@ -71,7 +71,7 @@
     - ```pip install git+https://github.com/KanHatakeyama/PolyMolParser.git```
 
 
-## You should modify bug on the following package
+## You should modify bug of the following package
     - django-nested-inline (0.4.4)
         - Modification is needed to avoid a bug during saving records with "save as" option
         - [Check here](https://github.com/s-block/django-nested-inline/issues/139) to cope with the bug
