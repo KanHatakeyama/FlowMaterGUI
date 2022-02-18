@@ -30,13 +30,14 @@
 
 ## Setup
 - Sample SQLite3 database is included in this repo.
+- I recommend to use other SQL (e.g., PostgreSQL) for actual use
 
-### On your computer
+### On your server 
 1. Clone this repositry
 2. Setup Python environment according to "requirements.yml"
-3. Runserver
+3. Run server
     - ```python manage.py runserver```
-    - Or, other command, such as 
+    - Or, by other command, such as 
         - ```gunicorn -b :8765 config.wsgi```
 4. Access website
 5. You can login the site with
@@ -47,9 +48,10 @@
 1. Clone this repositry
 2. Login heroku via CLI
 3. Run the following commands
-    - ```heroku create [your project name]```
-    - ```heroku container:push web -a [your project name]```
-    - ```heroku container:release web -a [your project name]```
+    - ```heroku create [your heroku project name]```
+    - (Git your modifications)
+    - ```heroku container:push web -a [your heroku project name]```
+    - ```heroku container:release web -a [your heroku project name]```
 
 
 ## Major packages to be installed
