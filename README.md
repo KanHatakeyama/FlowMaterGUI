@@ -8,7 +8,17 @@
 ![about](pics/about.PNG)
 
 # How to use?
-- Document is [here!](https://kanhatakeyama.github.io/expmanager_document/)
+- [DEMO server](https://flowmatergui-hatakeyama.herokuapp.com/) is available!
+    - IMPORTANT NOTES about the server
+        - Login info
+            - username: user
+            - pass: user
+        - Database will reset every day
+        - [Table data exporting module](https://kanhatakeyama.github.io/expmanager_document/docs/experiment/about.html#convert-to-table-data) is unavailable due to a server issue (To be fixed)
+        - Response is rather slow because it runs on a free server
+        - You cannot use "save as" function due to a bug of django-nested-inline
+
+- [Read Document](https://kanhatakeyama.github.io/expmanager_document/) for the system 
 
 # Related paper
 - https://chemrxiv.org/engage/chemrxiv/article-details/61ee04a671868d22fdbc8856
@@ -19,6 +29,9 @@
     - Basic knowledge of Python and Django would be needed to run the program
 
 ## Setup
+- Sample SQLite3 database is included in this repo.
+
+### On your computer
 1. Clone this repositry
 2. Setup Python environment according to "requirements.yml"
 3. Runserver
@@ -29,6 +42,15 @@
 5. You can login the site with
     - Username: user
     - Pass: user
+
+### On [Heroku](https://heroku.com/) (via docker)
+1. Clone this repositry
+2. Login heroku via CLI
+3. Run the following commands
+    - ```heroku create [your project name]```
+    - ```heroku container:push web -a [your project name]```
+    - ```heroku container:release web -a [your project name]```
+
 
 ## Major packages to be installed
 - Main framwrok
@@ -43,11 +65,11 @@
     - ```conda install -c anaconda pillow -y```
     - ```conda install -c anaconda networkx -y```
     - ```conda install dtale -c conda-forge -y```
-- Additional package to treat [Polymer structures](https://github.com/KanHatakeyama/PolyMolParser)
+- Additional package to treat [Polymer structures](https://github.com/KanHatakeyama/PolyMolParser) (if needed)
     - ```pip install git+https://github.com/KanHatakeyama/PolyMolParser.git```
 
 
-- Modify bug on a current package
+## You should modify bug on the following package
     - django-nested-inline (0.4.4)
         - Modification is needed to avoid a bug during saving records with "save as" option
         - [Check here](https://github.com/s-block/django-nested-inline/issues/139) to cope with the bug
