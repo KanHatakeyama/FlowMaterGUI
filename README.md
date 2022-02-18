@@ -8,7 +8,7 @@
 ![about](pics/about.PNG)
 
 # How to use?
-- [DEMO server](https://flowmatergui-hatakeyama.herokuapp.com/) is available!
+- [DEMO server](https://flowmatergui-hatakeyama.herokuapp.com/) is available! (just wait for ca. 30 seconds to load the page)
     - IMPORTANT NOTES about the server
         - Login info
             - username: user
