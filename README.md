@@ -75,7 +75,7 @@
 - django-nested-inline (0.4.4)
         - Modification is needed to avoid a bug during saving records with "save as" option
 - [Click here](https://github.com/s-block/django-nested-inline/issues/139)
-         to fix the bug
+         to see the fix of the bug
 
 # Version
 - 2022.2.17 First prototype
