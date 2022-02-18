@@ -78,6 +78,7 @@
 
 # Version
 - 2022.2.17 First prototype
+- 2022.2.18 Add Heroku and Docker info.
 
 
 # Author
