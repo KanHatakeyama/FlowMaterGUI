@@ -80,7 +80,7 @@
 # Version
 - 2022.2.17 First prototype
 - 2022.2.18 Add Heroku and Docker info.
-
+- 2022.2.19 Implement csv export (default)
 
 # Author
 - Kan Hatakeyama-Sato
