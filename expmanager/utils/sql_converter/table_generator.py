@@ -7,9 +7,10 @@ import numpy as np
 from . dict_util import change_dict_key
 from . import sql_receiver, json_integrator, dict_util
 from .experiment_processor import experiment_graph_generator
-
+from django.http import HttpResponse
 
 NAN_STRING="____n/a___not_available___"
+PANDAS_MODE=True
 
 # IP of the server. this is needed to use dtale
 
@@ -22,8 +23,7 @@ except ImportError:
     pass
 
 
-def df_to_dtale(df, pandas_mode=False):
-
+def df_to_dtale(df, pandas_mode=PANDAS_MODE):
 
     # drop all nan column
     df = df.dropna(how='all', axis=1)
@@ -35,7 +35,10 @@ def df_to_dtale(df, pandas_mode=False):
     df=df.replace(NAN_STRING,np.nan)
 
     if pandas_mode:
-        return df
+        response = HttpResponse(content_type='text/csv; charset=utf8')
+        response['Content-Disposition'] = 'attachment; filename=users.csv'
+        df.to_csv(path_or_buf=response, encoding='utf_8_sig', index=None)
+        return response 
 
 
     #set host ip of the server
@@ -46,7 +49,7 @@ def df_to_dtale(df, pandas_mode=False):
 # prepare chemicals database as df
 
 
-def generate_chemical_dtale(queryset, pandas_mode=False):
+def generate_chemical_dtale(queryset, pandas_mode=PANDAS_MODE):
     chem_dict = sql_receiver.generate_chemical_json(
         queryset, dict_mode=True)["Chemical"]
 
@@ -57,7 +60,7 @@ def generate_chemical_dtale(queryset, pandas_mode=False):
     return df_to_dtale(df, pandas_mode=pandas_mode)
 
 
-def generate_mixture_dtale(queryset, pandas_mode=False):
+def generate_mixture_dtale(queryset, pandas_mode=PANDAS_MODE):
     dict_data = sql_receiver.generate_mixture_json(queryset, dict_mode=True)
     json_integrator.param_sort(dict_data, "Mixture", "chemicals")
     mixture_list = dict_data["Mixture"]
@@ -81,7 +84,7 @@ def generate_mixture_dtale(queryset, pandas_mode=False):
     return df_to_dtale(df, pandas_mode=pandas_mode)
 
 
-def generate_experiment_dtale(queryset, pandas_mode=False):
+def generate_experiment_dtale(queryset, pandas_mode=PANDAS_MODE):
     dict_data = sql_receiver.generate_experiment_json(queryset, dict_mode=True)
     parsed_data = experiment_graph_generator.generate_experiment_dict(
         dict_data, fp_mode=False)
@@ -89,7 +92,7 @@ def generate_experiment_dtale(queryset, pandas_mode=False):
     return df_to_dtale(df, pandas_mode=pandas_mode)
 
 
-def generate_experiment_fp_dtale(queryset, pandas_mode=False):
+def generate_experiment_fp_dtale(queryset, pandas_mode=PANDAS_MODE):
     dict_data = sql_receiver.generate_experiment_json(queryset, dict_mode=True)
     parsed_data, _ = experiment_graph_generator.generate_experiment_dict(
         dict_data)
