@@ -116,3 +116,4 @@ dmypy.json
 
 #custom
 log.django
+media/files/*
