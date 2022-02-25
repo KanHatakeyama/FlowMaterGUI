@@ -20,7 +20,7 @@ def file_size_validate(value):
 # tag
 class Tag(models.Model):
     name = models.CharField(max_length=32)
-
+    special_memo = models.CharField(max_length=200, null=True, blank=True)
     def __str__(self):
         return self.name
 
