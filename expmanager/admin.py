@@ -46,6 +46,7 @@ class ExperimentAdmin(NestedModelAdmin):
 
     actions = ["show_table", "show_fp_table", 'show_json']
     #actions = ['show_json']
+    ordering = ["-updated_at"]
 
     # actions
     def show_json(self, request, queryset):
@@ -110,7 +111,7 @@ class ChemicalAdmin(NestedModelAdmin, ImportExportModelAdmin):
     inlines = [PropertychemInline, ChemicalFileInline]
 
     readonly_fields = ('smiles_preview',"smiles_info",)
-    ordering = ["title"]
+    ordering = ["-updated_at"]
     save_as = True
 
     actions = ["show_table", 'show_json']
@@ -187,6 +188,7 @@ class MixtureAdmin(admin.ModelAdmin):
     save_as = True
 
     actions = ["show_table", 'show_json']
+    ordering = ["-updated_at"]
 
     # actions
     def show_json(self, request, queryset):
