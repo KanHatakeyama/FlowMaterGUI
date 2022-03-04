@@ -252,6 +252,7 @@ class Property(models.Model):
     title = models.ForeignKey(
         PropertyName, on_delete=models.CASCADE, related_name="property_title")
     value = models.CharField(max_length=2000)
+    special_memo = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self) -> str:
         return str(self.title)
@@ -263,6 +264,7 @@ class PropertyChem(models.Model):
     title = models.ForeignKey(
         PropertyName, on_delete=models.CASCADE, related_name="property_chem_title")
     value = models.CharField(max_length=200)
+    special_memo = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
         verbose_name = "PropertyChem"
@@ -277,6 +279,7 @@ class PropertyMixture(models.Model):
     title = models.ForeignKey(
         PropertyName, on_delete=models.CASCADE, related_name="property_Mixture_title")
     value = models.CharField(max_length=200)
+    special_memo = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self) -> str:
         return str(self.title)
