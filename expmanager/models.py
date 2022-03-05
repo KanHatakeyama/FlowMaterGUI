@@ -34,7 +34,7 @@ class Chemical(models.Model):
     obtained_date = models.DateField(null=True, blank=True)
     made_by = models.CharField(max_length=400, null=True, blank=True)
     #SMILES = models.CharField(max_length=4000, null=True, blank=True)
-    SMILES = models.TextField(max_length=4000, null=True, blank=True)
+    SMILES = models.TextField(max_length=8000, null=True, blank=True)
     commercial = models.BooleanField(default=True)
     disposed = models.BooleanField(default=False)
     company = models.CharField(max_length=200, null=True, blank=True)
@@ -174,7 +174,8 @@ class Experiment(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     experimenter = models.CharField(max_length=200)
     project = models.ForeignKey(
-        Project, on_delete=models.CASCADE, related_name="project_name")
+        Project,
+         on_delete=models.CASCADE, related_name="project_name")
     special_memo = models.CharField(max_length=200, null=True, blank=True)
     tags = models.ManyToManyField(Tag, null=True, blank=True)
     pub_date = models.DateTimeField("Experiment date", null=True, blank=True)
